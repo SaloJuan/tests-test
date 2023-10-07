@@ -1,0 +1,22 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "capitalize.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaloJuan/tests-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SaloJuan/tests-test/issues"
+  },
+  "homepage": "https://github.com/SaloJuan/tests-test#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
