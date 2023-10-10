@@ -1,38 +1,33 @@
 function cipher (msg, factor){
 
-    const abc  = ["a","b","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"];
+    const abc2  = ["a","b","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"];
+    const abc  = " abcdefghijklmnñopqrstuvwxyz";
 
     let cipheredMsg = "";
 
-    let idx;
+    let abcIdx;
 
-    for (let i=0; i< msg.length; i++){
 
-        
-        if(msg[i] !== " "){
+    for (let char of msg){
 
-            idx = abc.indexOf(msg[i]);        
+        for (let i=0; i<abc.length; i++){
 
-            //this if-else is intended for every abc index that passes abc's length / last character. 
-            if(idx+factor >= abc.length-1){
+            if(char == abc[i]){
 
-                                    //factor-1 so abc is iterated the exact factor times
-                cipheredMsg += abc[abc.length-factor];                
+                if(i>=27)
+                    cipheredMsg += abc[i-3];
 
+                else if(char == " ")
+                    cipheredMsg += " ";
+                
+                else if(i<=28)
+                    cipheredMsg += abc[i+3];
             }
-            else
-                cipheredMsg += abc[idx+factor];   
         }
-        else  {
-
-            cipheredMsg += " "; 
-
-        }   
-        
-    }      
+    }        
 
     console.log(cipheredMsg);
 
 }
 
-cipher("z",3);
+cipher("buenas ",3);
