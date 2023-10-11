@@ -31,16 +31,16 @@ function cipher (msg, factor){
                     console.log('else letra comun a validar si es mayuscula')
 
                     if(char == abcUpp[i])
-                        cipheredMsg += abcUpp[i+3];
+                        cipheredMsg += abcUpp[i+factor];
                     else
-                        cipheredMsg += abc[i+3];
+                        cipheredMsg += abc[i+factor];
                 }                    
 
             } else if (char == numbers[i]){
+                    //At this point I discovered that everything would be a hundred times better if I refactored this whole function to use linked lists. Also splitting it up into more atomic functions to handle all the individual checks.
+                cipheredMsg += numbers[i+factor];
 
-            } else if (char == symbols[i]){
-
-            }            
+            }          
         }
     }
     
@@ -48,4 +48,4 @@ function cipher (msg, factor){
 
 }
 
-cipher("A",3);
+module.exports = cipher;

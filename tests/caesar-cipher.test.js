@@ -11,4 +11,7 @@ test('Testing letters', () =>{
 });
 
 
-test("Testing number",)
+test("Testing number", ()=>{
+
+    expect(cipher(2,2).toBe(4));
+})
