@@ -42,7 +42,7 @@ function analyzeArray(arr){
 
     } else
 
-        throw new Error("enter a valid numbers array");    
+        throw new Error("Please enter a valid numbers array");    
 
 }
 

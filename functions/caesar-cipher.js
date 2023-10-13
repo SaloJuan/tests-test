@@ -1,6 +1,5 @@
 function cipher (msg, factor){
 
-    const abc2  = ["a","b","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"];
     const abc  = " abcdefghijklmnñopqrstuvwxyz";
     const abcUpp = " ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
 
@@ -9,15 +8,45 @@ function cipher (msg, factor){
 
     let cipheredMsg = "";
 
-    let abcIdx;
+    for (let i=0; i<msg.length; i++){
+
+        for (let j=0; j<abc.length; j++){
+
+            if(msg[i] == abc[j] || msg[i] == abcUpp[j]){
+
+                if(j >= 26 || j >= 27 || j >= 28 ){
+
+                    cipheredMsg += abc[j-factor];
+
+                } else{
+
+                    //falta validar si es mayuscula y que hace con eso.
+                    cipheredMsg += abc[j+factor]; 
+                }
+                
+            } 
+        }
+        
+
+    }
+
+    
+    
+    return cipheredMsg;
+
+}
+
+module.exports = cipher;
 
 
-    for (let char of msg){
+/**
+ * 
+ * 
+ * for (let char in msg){
 
         for (let i=0; i<abc.length; i++){
 
-            if(char == abc[i] || char == abcUpp[i])
-            {
+            if(char == abc[i] || char == abcUpp[i]){
 
                 if(i >= 26 || i >= 27 || i >= 28 ){
 
@@ -27,8 +56,7 @@ function cipher (msg, factor){
                         cipheredMsg +=abc[i-3];
 
                 } else {
-
-                    console.log('else letra comun a validar si es mayuscula')
+                    
 
                     if(char == abcUpp[i])
                         cipheredMsg += abcUpp[i+factor];
@@ -38,14 +66,9 @@ function cipher (msg, factor){
 
             } else if (char == numbers[i]){
                     //At this point I discovered that everything would be a hundred times better if I refactored this whole function to use linked lists. Also splitting it up into more atomic functions to handle all the individual checks.
-                cipheredMsg += numbers[i+factor];
+                cipheredMsg += "" + numbers[i+factor];
 
             }          
         }
     }
-    
-    console.log(cipheredMsg);
-
-}
-
-module.exports = cipher;
+ */
